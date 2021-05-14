@@ -1,7 +1,5 @@
 # Discord-Sidebar-Price-Bot
-Inspired by [pipercucu/DiscordSidebarPriceBot](https://github.com/pipercucu/DiscordSidebarPriceBot), 
-these Python scripts can run Discord bots that pull live data at intervals and display it on the sidebar of a Discord guild (i.e. server). 
-It currently supports:
+These Python scripts can run Discord bots that pull live data at intervals and display it on the sidebar of a Discord guild (i.e. server). 
 
 - **Cryptocurrency price** data (in USD, BTC, and/or ETH) from Coingecko API
 
