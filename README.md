@@ -1,4 +1,4 @@
-# discord-sidebar-price-bot
+# Discord-Sidebar-Price-Bot
 Inspired by [pipercucu/DiscordSidebarPriceBot](https://github.com/pipercucu/DiscordSidebarPriceBot), 
 these Python scripts can run Discord bots that pull live data at intervals and display it on the sidebar of a Discord guild (i.e. server). 
 It currently supports:
@@ -30,7 +30,7 @@ You must configure the [crypto_config.yaml](crypto_config.yaml) with your unique
 If you would like to create a docker image with your preferred ticker simply change `AKT` to your ticker of choice within the Dockerfile 
 ```CMD [ "python", "./crypto_run.py", "-t", "`AKT`" ]```
 
-##Write your own Dockerfile 
+## Write your own Dockerfile 
 
 Point to Python 
 
@@ -50,9 +50,9 @@ Point to Python
  
 2. Install dependencies 
 
-`RUN pip install -r requirements.txt
+`RUN pip install -r requirements.txt`
 
- RUN pip install discord`
+`RUN pip install discord`
  
 3. Command Execute
 
