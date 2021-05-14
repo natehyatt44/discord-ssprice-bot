@@ -32,25 +32,27 @@ If you would like to create a docker image with your preferred ticker simply cha
 
 ##Write your own Dockerfile 
 
-Point to Python `FROM python:3`
+Point to Python 
+
+`FROM python:3`
 
 1. Point to files/scripts in the repository 
 
-```ADD crypto_run.py /
+`ADD crypto_run.py /`
 
-ADD requirements.txt /
+`ADD requirements.txt /`
 
-ADD crypto_config.yaml /
+`ADD crypto_config.yaml /`
 
-ADD crypto_cache.json /
+`ADD crypto_cache.json /`
 
-ADD crypto_cache.py /```
+`ADD crypto_cache.py /`
  
 2. Install dependencies 
 
-```RUN pip install -r requirements.txt
+`RUN pip install -r requirements.txt
 
- RUN pip install discord```
+ RUN pip install discord`
  
 3. Command Execute
 
