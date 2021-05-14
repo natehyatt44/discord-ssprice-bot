@@ -30,7 +30,8 @@ You must configure the [crypto_config.yaml](crypto_config.yaml) with your unique
 If you would like to create a docker image with your preferred ticker simply change `AKT` to your ticker of choice within the Dockerfile 
 ```CMD [ "python", "./crypto_run.py", "-t", "`AKT`" ]```
 
-#Write your own Dockerfile 
+##Write your own Dockerfile 
+
 Point to Python `FROM python:3`
 
 1. Point to files/scripts in the repository 
