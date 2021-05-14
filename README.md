@@ -36,22 +36,22 @@ Point to Python `FROM python:3`
 
 1. Point to files/scripts in the repository 
 
-`ADD crypto_run.py /
+```ADD crypto_run.py /
 
- ADD requirements.txt /
+ADD requirements.txt /
 
- ADD crypto_config.yaml /
+ADD crypto_config.yaml /
 
- ADD crypto_cache.json /
+ADD crypto_cache.json /
 
- ADD crypto_cache.py /`
+ADD crypto_cache.py /```
  
 2. Install dependencies 
 
-`RUN pip install -r requirements.txt
+```RUN pip install -r requirements.txt
 
- RUN pip install discord`
+ RUN pip install discord```
  
-Command Execute
+3. Command Execute
 
 `CMD [ "python", "./crypto_run.py", "-t", "AKT" ]`
