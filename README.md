@@ -57,5 +57,6 @@ If you would like to create a docker image with your preferred ticker simply cha
 4. Command Execute
 
 `CMD [ "python", "./crypto_run.py", "-t", "AKT" ]`
-Feel free to use whatever ticker you'd like (on coin gecko) 
-be sure to update the crypto_config.yaml
+
+Feel free to use whatever ticker you'd like (on coin gecko). 
+Be sure to update the crypto_config.yaml.
