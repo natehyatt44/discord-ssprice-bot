@@ -4,65 +4,54 @@ these Python scripts can run Discord bots that pull live data at intervals and d
 It currently supports:
 
 - **Cryptocurrency price** data (in USD, BTC, and/or ETH) from Coingecko API
-- **Gas price** of the Ethereum blockchain (in gwei) from Etherscan API or gasnow API
-- **Forex price** from exchangeratesapi
-- **Crypto Fear & Greed Index** from Alternate.me API
 
-## Dependencies
-Recommended `Python 3.7`, although it should support `Python >=3.5 <=3.9`. Install all dependencies:
-```
-pip install -r requirements.txt
-```
+Cryptocurrency Price Bot
 
-## Test & Run
-### Cryptocurrency Price Bot
-1. Cache the cryptocurrency ticker list from Coincegko by generating a *crypto_cache.json* file.
-```
-python crypto_cache.py -v
-```
+Cache the cryptocurrency ticker list from Coincegko by generating a crypto_cache.json file.
 
-2. Configure [crypto_config.yaml](crypto_config.yaml) using the template provided. 
-It requires a unique Discord bot key and (non-unique) Guild ID per bot.
-1 sidebar bot per cryptocurrency (expressed by their ticker e.g. BTC, ETH, YFI). For each cryptocurrency, the price can be shown in USD, BTC, and/or ETH.
+`python crypto_cache.py -v`
 
-3. Sometimes multiple coins or tokens share the same ticker (e.g. UNI). In this case, modify [resolver_ambiguous_ticker()](crypto_run.py#L20) to specify the token you want.
 
-4. Run a cryptocurrency price bot:
-```
-python crypto_run.py -t BTC
-```
-Replace the ticker `BTC` with any cryptocurrency you have configured in Step 2.
+## Dockerfile 
+The provided Dockerfile is configured to run a price bot with the ticker `AKT`
+You must configure the [crypto_config.yaml](crypto_config.yaml) with your unique Discord bot key and (non-unique) Guild ID and insert your prefered ticker (AKT)
 
-### Gas Price Bot
-1. Configure [gas_config.yaml](gas_config.yaml) using the template provided.
-It requires a unique Discord bot key and (non-unique) Guild ID per bot.
-It also requires an Etherscan API key if you would like to use Etherscan API.
+```"AKT":
+    priceUnit:
+        - USD
+        - ETH
+    decimalPlace:
+        - 0
+        - 2
+    updateFreq: 120
+    discordBotKey: <Unique Discord Bot Key>
+    guildId: <Guild ID>```
 
-2. Run a gas price bot using Etherscan API:
-```
-python gas_run.py -s etherscan
-```
-Replace `etherscan` with `gasnow` to use Gasnow API (no key required!).
 
-### Forex Price Bot
-1. Configure [forex_config.yaml](forex_config.yaml) using the template provided. 
-It requires a unique Discord bot key and (non-unique) Guild ID per bot.
-1 sidebar bot per forex pair (expressed by their ticker/ticker e.g. GBP/HKD).
+If you would like to create a docker image with your preferred ticker simply change `AKT` to your ticker of choice within the Dockerfile 
+```CMD [ "python", "./crypto_run.py", "-t", "`AKT`" ]```
 
-2. Run a forex price bot:
-```
-python forex_run.py -p GBP/HKD
-```
-Replace `GBP/HKD` with any forex pair you have configured in Step 1.
+#Write your own Dockerfile 
+Point to Python `FROM python:3`
 
-### Crypto Fear & Greed Index
-1. Configure [cfgi_config.yaml](cfgi_config.yaml) using the template provided. 
-It requires a unique Discord bot key and (non-unique) Guild ID per bot.
+1. Point to files/scripts in the repository 
 
-2. Run a bot:
-```
-python cfgi_run.py
-```
+`ADD crypto_run.py /
 
-## Deploy
-Once you are familiar with running a single sidebar bot, you can run multiple bots concurrently by calling `./bot.sh` and kill all bots by calling `./kill.sh`. You might want to modify the commands in `./bot.sh` to suit your own needs.
+ ADD requirements.txt /
+
+ ADD crypto_config.yaml /
+
+ ADD crypto_cache.json /
+
+ ADD crypto_cache.py /`
+ 
+2. Install dependencies 
+
+`RUN pip install -r requirements.txt
+
+ RUN pip install discord`
+ 
+Command Execute
+
+`CMD [ "python", "./crypto_run.py", "-t", "AKT" ]`
