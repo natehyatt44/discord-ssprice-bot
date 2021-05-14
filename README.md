@@ -16,7 +16,7 @@ Cache the cryptocurrency ticker list from Coincegko by generating a crypto_cache
 The provided Dockerfile is configured to run a price bot with the ticker `AKT`
 You must configure the [crypto_config.yaml](crypto_config.yaml) with your unique Discord bot key and (non-unique) Guild ID and insert your prefered ticker (AKT)
 
-```"AKT":
+`"AKT":
     priceUnit:
         - USD
         - ETH
@@ -25,8 +25,7 @@ You must configure the [crypto_config.yaml](crypto_config.yaml) with your unique
         - 2
     updateFreq: 120
     discordBotKey: <Unique Discord Bot Key>
-    guildId: <Guild ID>```
-
+    guildId: <Guild ID>`
 
 If you would like to create a docker image with your preferred ticker simply change `AKT` to your ticker of choice within the Dockerfile 
 ```CMD [ "python", "./crypto_run.py", "-t", "`AKT`" ]```
