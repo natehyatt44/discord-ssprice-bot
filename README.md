@@ -22,7 +22,7 @@ These Python scripts can run Discord bots that pull live data at intervals and d
   ![img.png](img.png)
 
 - If you want to setup additional bots follow the same format above but when you run the python code ensure to reference another ticker 
-- eg. `python crypto_run.py -t ROPE`
+  - eg. `python crypto_run.py -t ROPE`
 
 
 
