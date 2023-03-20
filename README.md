@@ -2,7 +2,7 @@
 These Python scripts can run Discord bots that pull live data at intervals and display it on the sidebar of a Discord guild (i.e. server).
 - **Cryptocurrency price** data (in USD) from Saucerswap API
 ## Getting Started
-- Clone Repository and run `pip install requirements.txt` in your terminal. This was ran in python 3.9, it would be best to run it with that.
+- Clone Repository and run `pip install -r requirements.txt` in your terminal. This was ran in python 3.9, it would be best to run it with that.
 - The crytpo_config.yaml file is already configured to run for HONK, ROPE, kekleo, and Argyl. More options can be added if you follow the pattern.
   - Ticker - (case sensitive)
   - decimalPlace - Amount of decimals you wish to see on the bot
