@@ -1,61 +1,24 @@
 # Discord-Sidebar-Price-Bot
-These Python scripts can run Discord bots that pull live data at intervals and display it on the sidebar of a Discord guild (i.e. server). 
+These Python scripts can run Discord bots that pull live data at intervals and display it on the sidebar of a Discord guild (i.e. server).
+- **Cryptocurrency price** data (in USD) from Saucerswap API
+## Getting Started
+- Clone Repository and run `pip install requirements.txt` in your terminal. This was ran in python 3.9, it would be best to run it with that.
+- The crytpo_config.yaml file is already configured to run for HONK, ROPE, kekleo, and Argyl. More options can be added if you follow the pattern.
+  - Ticker - (case sensitive)
+  - decimalPlace - Amount of decimals you wish to see on the bot
+  - updateFreq - Frequency in seconds that the python code will fetch the price data from saucerswap (default 60)
+  - discordBotKey - Create your discord bot and insert the key here
+  - guildId - Insert your server id aka guild id here.
+- Build a discord bot per ticker you wish to run against, and ensure you add the bot to the server as well.
+- Once your bot and the crypto_config.yaml is setup you are now ready to test.
+- Open terminal and you can run the following python command `python crypto_run.py -t HONK`
+- If everything works your bot should look something like this (I added the image to the bot creation myself, you'll need to do this as well)
+  - ![img.png](img.png)
 
-- **Cryptocurrency price** data (in USD, BTC, and/or ETH) from Coingecko API
 
-Cryptocurrency Price Bot
-
-Cache the cryptocurrency ticker list from Coincegko by generating a crypto_cache.json file.
-
-`python crypto_cache.py -v`
+- If you want to setup additional bots follow the same format above but when you run the python code ensure to reference another ticker 
+- eg. `python crypto_run.py -t ROPE`
 
 
-## Dockerfile 
-The provided Dockerfile is configured to run a price bot with the ticker `AKT`
-You must configure the [crypto_config.yaml](crypto_config.yaml) with your unique Discord bot key and (non-unique) Guild ID and insert your prefered ticker (AKT)
 
-`"AKT":
-    priceUnit:
-        - USD
-        - ETH
-    decimalPlace:
-        - 0
-        - 2
-    updateFreq: 120
-    discordBotKey: <Unique Discord Bot Key>
-    guildId: <Guild ID>`
-
-If you would like to create a docker image with your preferred ticker simply change `AKT` to your ticker of choice within the Dockerfile 
-```CMD [ "python", "./crypto_run.py", "-t", "`AKT`" ]```
-
-## Write your own Dockerfile 
-
-1. Point to Python 
-
-`FROM python:3`
-
-2. Point to files/scripts in the repository 
-
-`ADD crypto_run.py /`
-
-`ADD requirements.txt /`
-
-`ADD crypto_config.yaml /`
-
-`ADD crypto_cache.json /`
-
-`ADD crypto_cache.py /`
- 
-3. Install dependencies 
-
-`RUN pip install -r requirements.txt`
-
-`RUN pip install discord`
- 
-4. Command Execute
-
-`CMD [ "python", "./crypto_run.py", "-t", "AKT" ]`
-
-Feel free to use whatever ticker you'd like (on coin gecko). 
-
-Be sure to update the crypto_config.yaml.
+- This repo is simple fork and has been significantly stripped down from https://github.com/edenau/discord-sidebar-price-bot
