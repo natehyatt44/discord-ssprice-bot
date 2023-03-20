@@ -37,7 +37,9 @@ def main(ticker: str) -> None:
         price_now = priceList['priceUsd']
         price_now = round(price_now, numDecimalPlace)
 
-        await client.get_guild(config['guildId']).me.edit(nick=f'${price_now}')
+        for guildId in config['guildId']:
+            await client.get_guild(guildId).me.edit(nick=f'${price_now}')
+
         await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=ticker))
         await asyncio.sleep(config['updateFreq']) # in seconds
 

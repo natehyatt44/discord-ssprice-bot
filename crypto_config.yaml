@@ -2,23 +2,31 @@ HONK:
     decimalPlace:
         - 5
     updateFreq: 60
-    discordBotKey:
+    discordBotKey: xxx
     guildId:
+        - xxx
+        - xxx
 kekleo:
     decimalPlace:
         - 5
     updateFreq: 60
-    discordBotKey:
+    discordBotKey: xxx
     guildId:
+        - xxx
+        - xxx
 ROPE:
     decimalPlace:
         - 5
     updateFreq: 60
-    discordBotKey:
+    discordBotKey: xxx
     guildId:
+        - xxx
+        - xxx
 Argyl:
     decimalPlace:
         - 5
     updateFreq: 60
-    discordBotKey:
+    discordBotKey: xxx
     guildId:
+        - xxx
+        - xxx
