@@ -17,7 +17,7 @@ These Python scripts can run Discord bots that pull live data at intervals and d
 - Open terminal and you can run the following python command `python crypto_run.py -t SAUCEINU`
 - If everything works your bot should look something like this (I added the image to the bot creation myself, you'll need to do this as well) 
 
-  ![img.png](img.png)
+![img.png](img.png)
 
 - If you want to setup additional bots follow the same format above but when you run the python code ensure to reference another ticker 
 - eg. `python crypto_run.py -t TOKENNAME`
