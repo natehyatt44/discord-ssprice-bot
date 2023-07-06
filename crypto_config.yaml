@@ -1,4 +1,11 @@
-HONK:
+SAUCEINU:
+    decimalPlace:
+        - 9
+    updateFreq: 10
+    discordBotKey: MTA4Njg0NjkzNTk0NTcxNTc3NA.GOTHfr.zneAJOmvy4IgDXrhufmaWSqakHq4g43lS3viIA
+    guildId:
+        - 1126485878404026488
+token:
     decimalPlace:
         - 5
     updateFreq: 60
@@ -6,27 +13,4 @@ HONK:
     guildId:
         - xxx
         - xxx
-kekleo:
-    decimalPlace:
-        - 5
-    updateFreq: 60
-    discordBotKey: xxx
-    guildId:
-        - xxx
-        - xxx
-ROPE:
-    decimalPlace:
-        - 5
-    updateFreq: 60
-    discordBotKey: xxx
-    guildId:
-        - xxx
-        - xxx
-Argyl:
-    decimalPlace:
-        - 5
-    updateFreq: 60
-    discordBotKey: xxx
-    guildId:
-        - xxx
-        - xxx
+

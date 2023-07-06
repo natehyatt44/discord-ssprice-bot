@@ -4,6 +4,7 @@ import time
 import json, yaml
 import discord
 import asyncio
+import decimal
 
 def get_price() -> dict:
     """
@@ -32,16 +33,22 @@ def main(ticker: str) -> None:
 
     async def send_update(priceList, numDecimalPlace=None):
         if numDecimalPlace == 0:
-            numDecimalPlace = None # round(2.3, 0) -> 2.0 but we don't want ".0"
+            numDecimalPlace = None  # round(2.3, 0) -> 2.0 but we don't want ".0"
 
         price_now = priceList['priceUsd']
-        price_now = round(price_now, numDecimalPlace)
+
+        if numDecimalPlace is not None:
+            price_now = round(price_now, numDecimalPlace)
+            price_now = format(decimal.Decimal(price_now), f'.{numDecimalPlace}f')
+        else:
+            # Format as standard decimal, not scientific notation
+            price_now = format(decimal.Decimal(price_now), '.6f')
 
         for guildId in config['guildId']:
             await client.get_guild(guildId).me.edit(nick=f'${price_now}')
 
         await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=ticker))
-        await asyncio.sleep(config['updateFreq']) # in seconds
+        await asyncio.sleep(config['updateFreq'])  # in seconds
 
     @client.event
     async def on_ready():
