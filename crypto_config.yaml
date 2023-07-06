@@ -2,9 +2,10 @@ SAUCEINU:
     decimalPlace:
         - 9
     updateFreq: 10
-    discordBotKey: MTA4Njg0NjkzNTk0NTcxNTc3NA.GOTHfr.zneAJOmvy4IgDXrhufmaWSqakHq4g43lS3viIA
+    discordBotKey: xx
     guildId:
-        - 1126485878404026488
+        - xx
+        - xx
 token:
     decimalPlace:
         - 5
